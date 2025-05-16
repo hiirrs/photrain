@@ -1,0 +1,21 @@
+.
+├── addons
+│   ├── __init__.py
+│   ├── __manifest__.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   └── models.py
+│   ├── security
+│   │   └── ir.model.access.csv
+│   └── views
+│       ├── course_views.xml
+│       ├── evaluation_views.xml
+│       ├── feedback_views.xml
+│       └── menus.xml
+├── docker-compose.yml
+├── .env
+├── .env.example
+├── .gitignore
+└── out.txt
+
+5 directories, 14 files

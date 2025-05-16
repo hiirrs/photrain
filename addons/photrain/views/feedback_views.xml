@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_photrain_feedback_tree" model="ir.ui.view">
+        <field name="name">photrain.feedback.tree</field>
+        <field name="model">photrain.feedback</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="user_id"/>
+                <field name="course_id"/>
+                <field name="category"/>
+                <field name="rating"/>
+                <field name="submission_date"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="view_photrain_feedback_form" model="ir.ui.view">
+        <field name="name">photrain.feedback.form</field>
+        <field name="model">photrain.feedback</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="user_id"/>
+                        <field name="course_id"/>
+                        <field name="category"/>
+                        <field name="rating"/>
+                        <field name="submission_date"/>
+                    </group>
+                    <group>
+                        <field name="comment"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_photrain_feedback" model="ir.actions.act_window">
+        <field name="name">Feedback</field>
+        <field name="res_model">photrain.feedback</field>
+        <field name="view_mode">tree,form,pivot</field>
+    </record>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_slide_slide_form_inherit" model="ir.ui.view">
+        <field name="name">slide.slide.form.inherit</field>
+        <field name="model">slide.slide</field>
+        <field name="inherit_id" ref="website_slides.view_slide_slide_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='slide_type']" position="after">
+                <field name="evaluation_required" attrs="{'invisible':[('slide_type', '!=', 'quiz')]}"/>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="view_slide_channel_partner_view_form_inherit" model="ir.ui.view">
+        <field name="name">slide.channel.partner.form.inherit</field>
+        <field name="model">slide.channel.partner</field>
+        <field name="inherit_id" ref="website_slides.slide_channel_partner_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='completion']" position="after">
+                <field name="attendance"/>
+                <field name="hr_notes"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

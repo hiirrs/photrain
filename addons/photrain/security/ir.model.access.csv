@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_photrain_feedback_user,Photrain Feedback User,model_photrain_feedback,base.group_user,1,1,1,0
+access_photrain_feedback_admin,Photrain Feedback Admin,model_photrain_feedback,base.group_system,1,1,1,1
