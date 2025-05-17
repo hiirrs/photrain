@@ -1,0 +1,80 @@
+<odoo>
+  <!-- Tree View -->
+  <record id="view_elearning_analytics_tree" model="ir.ui.view">
+    <field name="name">elearning.analytics.tree</field>
+    <field name="model">elearning.analytics</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="course_id"/>
+        <field name="total_students"/>
+        <field name="completion_rate"/>
+        <field name="average_score"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- Form View -->
+  <record id="view_elearning_analytics_form" model="ir.ui.view">
+    <field name="name">elearning.analytics.form</field>
+    <field name="model">elearning.analytics</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="course_id"/>
+            <field name="total_students" readonly="1"/>
+            <field name="completion_rate" readonly="1"/>
+            <field name="average_score" readonly="1"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!-- Graph View -->
+  <record id="view_elearning_analytics_graph" model="ir.ui.view">
+    <field name="name">elearning.analytics.graph</field>
+    <field name="model">elearning.analytics</field>
+    <field name="arch" type="xml">
+      <graph string="eLearning Analytics Overview" type="bar">
+        <field name="course_id"/>
+        <field name="total_students" type="measure"/>
+        <field name="completion_rate" type="measure"/>
+        <field name="average_score" type="measure"/>
+      </graph>
+    </field>
+  </record>
+
+  <!-- Pivot View -->
+  <record id="view_elearning_analytics_pivot" model="ir.ui.view">
+    <field name="name">elearning.analytics.pivot</field>
+    <field name="model">elearning.analytics</field>
+    <field name="arch" type="xml">
+      <pivot string="Analytics Pivot">
+        <field name="course_id"/>
+        <field name="total_students"/>
+        <field name="completion_rate"/>
+        <field name="average_score"/>
+      </pivot>
+    </field>
+  </record>
+
+  <!-- Unified Action with all views -->
+  <record id="action_elearning_analytics" model="ir.actions.act_window">
+    <field name="name">eLearning Analytics</field>
+    <field name="res_model">elearning.analytics</field>
+    <field name="view_mode">tree,form,graph,pivot</field>
+    <field name="views" eval="[
+      (ref('view_elearning_analytics_tree'), 'tree'),
+      (ref('view_elearning_analytics_form'), 'form'),
+      (ref('view_elearning_analytics_graph'), 'graph'),
+      (ref('view_elearning_analytics_pivot'), 'pivot')
+    ]"/>
+  </record>
+
+  <!-- Menu Items -->
+  <menuitem id="menu_elearning_analytics_root" name="eLearning Analytics" sequence="100"/>
+  <menuitem id="menu_elearning_analytics" name="Dashboard"
+            parent="menu_elearning_analytics_root"
+            action="elearning_analytics.action_elearning_analytics"/>
+</odoo>
