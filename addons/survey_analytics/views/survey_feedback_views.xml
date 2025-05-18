@@ -1,0 +1,39 @@
+<odoo>
+  <record id="view_form_survey_feedback" model="ir.ui.view">
+    <field name="name">survey.feedback.form</field>
+    <field name="model">survey.feedback</field>
+    <field name="arch" type="xml">
+      <form string="Survey Feedback">
+        <group>
+          <field name="name"/>
+          <field name="email"/>
+          <field name="feedback_text"/>
+          <field name="rating"/>
+          <field name="submitted_on" readonly="1"/>
+        </group>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_tree_survey_feedback" model="ir.ui.view">
+    <field name="name">survey.feedback.tree</field>
+    <field name="model">survey.feedback</field>
+    <field name="arch" type="xml">
+      <tree string="Survey Feedback">
+        <field name="name"/>
+        <field name="email"/>
+        <field name="rating"/>
+        <field name="submitted_on"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_survey_feedback" model="ir.actions.act_window">
+    <field name="name">Survey Feedback</field>
+    <field name="res_model">survey.feedback</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_survey_feedback_root" name="E-Learning Feedback" sequence="1"/>
+  <menuitem id="menu_survey_feedback" name="Survey Feedback" parent="menu_survey_feedback_root" action="action_survey_feedback"/>
+</odoo>

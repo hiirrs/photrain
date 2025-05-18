@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_survey_feedback,survey.feedback,model_survey_feedback,,1,1,1,1
