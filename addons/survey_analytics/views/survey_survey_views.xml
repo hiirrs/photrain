@@ -1,0 +1,17 @@
+<odoo>
+  <record id="view_survey_form_inherit_analytics" model="ir.ui.view">
+    <field name="name">survey.survey.form.analytics</field>
+    <field name="model">survey.survey</field>
+    <field name="inherit_id" ref="survey.survey_survey_view_form"/> <!-- inherit form survei bawaan -->
+    <field name="arch" type="xml">
+      <xpath expr="//sheet/notebook" position="inside">
+        <page string="Analytics">
+          <group>
+            <field name="total_responses" readonly="1"/>
+            <field name="avg_rating" readonly="1"/>
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>
